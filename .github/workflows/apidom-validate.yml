@@ -19,4 +19,4 @@ jobs:
       - name: swagger/openapi apidom spec validation.
         uses: char0n/apidom-validate@v1
         with:
-          definition-file: './terraform/overwatch/dev/templates/dev-api.json'
+          definition-file: './dev-api.json'
