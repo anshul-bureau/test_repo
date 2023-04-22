@@ -1,0 +1,38 @@
+
+name: Swagger API Validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+    
+    paths:
+      - terraform/overwatch/dev/templates/*-api.json
+      - terraform/overwatch/stg/templates/*-api.json
+      - terraform/overwatch/production/core/templates/*-api.json
+      
+jobs:
+  check_format:
+    runs-on: ubuntu-latest
+    name: Validate API Gateway OpenAPI Spec Files.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: swagger/openapi spec validation.
+        uses: mbowman100/swagger-validator-action@master
+        with:
+          files: |
+            ./terraform/overwatch/dev/templates/dev-api.json
+            ./terraform/overwatch/dev/templates/dev-bfp-api.json
+            ./terraform/overwatch/dev/templates/dev-invoid-api.json
+            ./terraform/overwatch/dev/templates/dev-super-admin-api.json
+            ./terraform/overwatch/stg/templates/stg-api.json
+            ./terraform/overwatch/stg/templates/stg-bfp-api.json
+            ./terraform/overwatch/stg/templates/stg-invoid-api.json
+            ./terraform/overwatch/stg/templates/stg-super-admin-api.json
+            ./terraform/overwatch/production/core/templates/prd-api.json
+            ./terraform/overwatch/production/core/templates/prd-bfp-api.json
+            ./terraform/overwatch/production/core/templates/prd-invoid-api.json
+            ./terraform/overwatch/production/core/templates/prd-super-admin-api.json
