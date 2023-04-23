@@ -3,7 +3,7 @@
   "info": {
     "title": "orch-dev-mb-api-gateway",
     "version": "1.0"
-  },
+  }
   "paths": {
     "/v2/services/enhance-liveness-check": {
       "post" : {

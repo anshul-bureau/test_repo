@@ -46,7 +46,7 @@
             "passthroughBehavior" : "when_no_match",
             "type" : "http_proxy"
           }
-        }
+        },
         "options": {
           "responses": {
             "200": {
