@@ -16,7 +16,7 @@ jobs:
     steps:
       - id: matrix
         run: |
-          echo '::set-output name=value::[\"./dev-api.json\", \"./dev2.json\"]'
+          echo '::set-output name=value::[\".\/dev-api.json\", \".\/dev2.json\"]'
   check_format:
     needs: [ setup ]
     runs-on: ubuntu-latest
