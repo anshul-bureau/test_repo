@@ -20,5 +20,5 @@ jobs:
         uses: char0n/apidom-validate@v1
         with:
           definition-file: |
-            ./dev2.json
-            ./dev-api.json
+            "./dev2.json" |
+            "./dev-api.json"
