@@ -9,21 +9,21 @@ on:
         default: 'dev'
       
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.matrix.outputs.value }}
-    steps:
-      - id: matrix
-        run: |
-          echo '::set-output name=value::[\".\/dev-api.json\", \".\/dev2.json\"]'
+  # setup:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     matrix: ${{ steps.matrix.outputs.value }}
+  #   steps:
+  #     - id: matrix
+  #       run: |
+  #         echo '::set-output name=value::[\".\/dev-api.json\", \".\/dev2.json\"]'
   check_format:
-    needs: [ setup ]
+    # needs: [ setup ]
     runs-on: ubuntu-latest
     name: Validate API Gateway OpenAPI Spec Files.
-    strategy:
-      matrix:
-        value: ${{fromJson(needs.setup.outputs.matrix)}}
+    # strategy:
+    #   matrix:
+    #     value: ${{fromJson(needs.setup.outputs.matrix)}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
