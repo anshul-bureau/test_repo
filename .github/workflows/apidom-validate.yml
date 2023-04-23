@@ -19,4 +19,6 @@ jobs:
       - name: swagger/openapi apidom spec validation.
         uses: char0n/apidom-validate@v1
         with:
-          definition-file: './dev2.json'
+          definition-file: |
+            ./dev2.json
+            ./dev-api.json
