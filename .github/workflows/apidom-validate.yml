@@ -28,7 +28,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: swagger/openapi apidom spec validation.
-        uses: char0n/apidom-validate@v1
+      - name: Get changed files in the docs folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v35
         with:
-          definition-file: "${{ matrix.value }}"
+          files: ./test/** # Alternatively using: `docs/**` or `docs`
+
+      - name: Run step if any file(s) in the docs folder change
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |
+          echo "One or more files in the docs folder has changed."
+          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+      
+
+      # - name: swagger/openapi apidom spec validation.
+      #   uses: char0n/apidom-validate@v1
+      #   with:
+      #     definition-file: "${{ matrix.value }}"

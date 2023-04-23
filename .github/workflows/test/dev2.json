@@ -1,0 +1,3810 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "orch-dev-mb-api-gateway",
+      "version": "1.0"
+    },
+    "paths": {
+      "/v2/services/enhance-liveness-check": {
+        "post" : {
+          "responses" : {
+            "200" : {
+              "description" : "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "$ref" : "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security" : [ {
+            "orch-dev-mb-lambda-authorizer" : [ ]
+          } ],
+          "x-amazon-apigateway-integration" : {
+            "httpMethod" : "POST",
+            "uri" : "https://${stageVariables.LoadBalancerURL}/v2/services/enhance-liveness-check",
+            "responses" : {
+              "default" : {
+                "statusCode" : "200"
+              }
+            },
+            "requestParameters" : {
+              "integration.request.header.X-Bureau-Request-ID" : "context.authorizer.x-bureau-request-id",
+              "integration.request.header.X-Bureau-Auth-Credential-ID" : "context.authorizer.x-bureau-auth-credential-id",
+              "integration.request.header.x-bureau-auth-client-id" : "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Auth-Org-ID": "context.authorizer.x-bureau-auth-org-id"
+            },
+            "passthroughBehavior" : "when_no_match",
+            "type" : "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/v2/services/aadhaar-qr-submit": {
+        "post" : {
+          "responses" : {
+            "200" : {
+              "description" : "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "$ref" : "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security" : [ {
+            "orch-dev-mb-lambda-authorizer" : [ ]
+          } ],
+          "x-amazon-apigateway-integration" : {
+            "httpMethod" : "POST",
+            "uri" : "https://${stageVariables.LoadBalancerURL}/v2/services/aadhaar-qr-submit",
+            "responses" : {
+              "default" : {
+                "statusCode" : "200"
+              }
+            },
+            "requestParameters" : {
+              "integration.request.header.X-Bureau-Request-ID" : "context.authorizer.x-bureau-request-id",
+              "integration.request.header.X-Bureau-Auth-Credential-ID" : "context.authorizer.x-bureau-auth-credential-id",
+              "integration.request.header.x-bureau-auth-client-id" : "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Auth-Org-ID": "context.authorizer.x-bureau-auth-org-id"
+            },
+            "passthroughBehavior" : "when_no_match",
+            "type" : "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/api": {
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/api/v1": {
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/api/v1/app": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/api/v1/app/",
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "requestParameters": {
+              "integration.request.header.Authorization": "'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUxNDA2MzksImV4cCI6MTk3MDUwMDYzOSwibmJmIjoxNjU1MTQwNjM5LCJpc3MiOiJzdml4LXNlcnZlciIsInN1YiI6Im9yZ18yM3JiOFlkR3FNVDBxSXpwZ0d3ZFhmSGlyTXUifQ.DiAzzQhvlmyvYrTiD-6d4MfPQCeeKP3s_5BCFFFO3uM'"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/api/v1/app/{appId}": {
+        "options": {
+          "parameters": [
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/api/v1/app/{appId}/endpoint": {
+        "get": {
+          "parameters": [
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/api/v1/app/{appId}/endpoint/",
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "requestParameters": {
+              "integration.request.header.Authorization": "'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUxNDA2MzksImV4cCI6MTk3MDUwMDYzOSwibmJmIjoxNjU1MTQwNjM5LCJpc3MiOiJzdml4LXNlcnZlciIsInN1YiI6Im9yZ18yM3JiOFlkR3FNVDBxSXpwZ0d3ZFhmSGlyTXUifQ.DiAzzQhvlmyvYrTiD-6d4MfPQCeeKP3s_5BCFFFO3uM'",
+              "integration.request.path.appId": "method.request.path.appId"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "http_proxy"
+          }
+        },
+        "post": {
+          "parameters": [
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/api/v1/app/{appId}/endpoint/",
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "requestParameters": {
+              "integration.request.header.Authorization": "'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUxNDA2MzksImV4cCI6MTk3MDUwMDYzOSwibmJmIjoxNjU1MTQwNjM5LCJpc3MiOiJzdml4LXNlcnZlciIsInN1YiI6Im9yZ18yM3JiOFlkR3FNVDBxSXpwZ0d3ZFhmSGlyTXUifQ.DiAzzQhvlmyvYrTiD-6d4MfPQCeeKP3s_5BCFFFO3uM'",
+              "integration.request.path.appId": "method.request.path.appId"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "parameters": [
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/api/v1/app/{appId}/endpoint/{endpointId}": {
+        "options": {
+          "parameters": [
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "endpointId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        },
+        "x-amazon-apigateway-any-method": {
+          "parameters": [
+            {
+              "name": "endpointId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "ANY",
+            "uri": "https://${stageVariables.LoadBalancerURL}/api/v1/app/{appId}/endpoint/{endpointId}/",
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "requestParameters": {
+              "integration.request.header.Authorization": "'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUxNDA2MzksImV4cCI6MTk3MDUwMDYzOSwibmJmIjoxNjU1MTQwNjM5LCJpc3MiOiJzdml4LXNlcnZlciIsInN1YiI6Im9yZ18yM3JiOFlkR3FNVDBxSXpwZ0d3ZFhmSGlyTXUifQ.DiAzzQhvlmyvYrTiD-6d4MfPQCeeKP3s_5BCFFFO3uM'",
+              "integration.request.path.endpointId": "method.request.path.endpointId",
+              "integration.request.path.appId": "method.request.path.appId"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/api/v1/app/{appId}/endpoint/{endpointId}/msg": {
+        "options": {
+          "parameters": [
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "endpointId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        },
+        "x-amazon-apigateway-any-method": {
+          "parameters": [
+            {
+              "name": "endpointId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "ANY",
+            "uri": "https://${stageVariables.LoadBalancerURL}/api/v1/app/{appId}/endpoint/{endpointId}/msg/",
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "requestParameters": {
+              "integration.request.header.Authorization": "'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUxNDA2MzksImV4cCI6MTk3MDUwMDYzOSwibmJmIjoxNjU1MTQwNjM5LCJpc3MiOiJzdml4LXNlcnZlciIsInN1YiI6Im9yZ18yM3JiOFlkR3FNVDBxSXpwZ0d3ZFhmSGlyTXUifQ.DiAzzQhvlmyvYrTiD-6d4MfPQCeeKP3s_5BCFFFO3uM'",
+              "integration.request.path.endpointId": "method.request.path.endpointId",
+              "integration.request.path.appId": "method.request.path.appId"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/api/v1/event-type": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/api/v1/event-type/",
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "requestParameters": {
+              "integration.request.header.Authorization": "'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUxNDA2MzksImV4cCI6MTk3MDUwMDYzOSwibmJmIjoxNjU1MTQwNjM5LCJpc3MiOiJzdml4LXNlcnZlciIsInN1YiI6Im9yZ18yM3JiOFlkR3FNVDBxSXpwZ0d3ZFhmSGlyTXUifQ.DiAzzQhvlmyvYrTiD-6d4MfPQCeeKP3s_5BCFFFO3uM'"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/api/v1/app/{appId}/msg": {
+        "options": {
+          "parameters": [
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        },
+        "x-amazon-apigateway-any-method": {
+          "parameters": [
+            {
+              "name": "appId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "ANY",
+            "uri": "https://${stageVariables.LoadBalancerURL}/api/v1/app/{appId}/msg/",
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "requestParameters": {
+              "integration.request.header.Authorization": "'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUxNDA2MzksImV4cCI6MTk3MDUwMDYzOSwibmJmIjoxNjU1MTQwNjM5LCJpc3MiOiJzdml4LXNlcnZlciIsInN1YiI6Im9yZ18yM3JiOFlkR3FNVDBxSXpwZ0d3ZFhmSGlyTXUifQ.DiAzzQhvlmyvYrTiD-6d4MfPQCeeKP3s_5BCFFFO3uM'",
+              "integration.request.path.appId": "method.request.path.appId"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/v1/auth/guest-tokens/": {
+        "options": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/auth/guest-tokens/{id}": {
+        "get": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/auth/guest-tokens/{id}",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.id": "method.request.path.id",
+              "integration.request.header.X-Bureau-Auth-Org-ID": "context.authorizer.x-bureau-auth-org-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/auth/{merchantId}/access": {
+        "post": {
+          "parameters": [
+            {
+              "name": "merchantId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/auth/{merchantId}/access",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.merchantId": "method.request.path.merchantId",
+              "integration.request.header.X-Bureau-Auth-Org-ID": "context.authorizer.x-bureau-auth-org-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/v1/auth/userName/{userId}": {
+        "patch": {
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "PATCH",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/auth/userName/{userId}",
+            "requestParameters": {
+              "integration.request.path.userId": "method.request.path.userId",
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.header.X-Bureau-Auth-Org-ID": "context.authorizer.x-bureau-auth-org-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/v2/services/{signal}": {
+        "post": {
+          "parameters": [
+            {
+              "name": "signal",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin" : {
+                  "schema" : {
+                    "type" : "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v2/services/{signal}",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.signal": "method.request.path.signal"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v2/services/{signal}/{referenceId}": {
+        "get": {
+          "parameters": [
+            {
+              "name": "signal",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "referenceId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v2/services/{signal}/{referenceId}",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.signal": "method.request.path.signal",
+              "integration.request.path.referenceId": "method.request.path.referenceId"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/v1/deviceService/devices": {
+        "get": {
+          "parameters": [
+            {
+              "name": "proxy",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/devices",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.path.proxy": "method.request.path.proxy",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/deviceService/devices/{fingerprint}/sessions": {
+        "get": {
+          "parameters": [
+            {
+              "name": "fingerprint",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/devices/{fingerprint}/sessions",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.path.fingerprint": "method.request.path.fingerprint",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/deviceService/deviceData/browser": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer-device-service": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/deviceData/browser",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options" : {
+          "responses" : {
+            "200" : {
+              "description" : "200 response",
+              "headers" : {
+                "Access-Control-Allow-Origin" : {
+                  "schema" : {
+                    "type" : "string"
+                  }
+                },
+                "Access-Control-Allow-Methods" : {
+                  "schema" : {
+                    "type" : "string"
+                  }
+                },
+                "Access-Control-Allow-Headers" : {
+                  "schema" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "$ref" : "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration" : {
+            "responses" : {
+              "default" : {
+                "statusCode" : "200",
+                "responseParameters" : {
+                  "method.response.header.Access-Control-Allow-Methods" : "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers" : "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Credential-ID'",
+                  "method.response.header.Access-Control-Allow-Origin" : "'*'"
+                }
+              }
+            },
+            "requestTemplates" : {
+              "application/json" : "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior" : "never",
+            "timeoutInMillis" : 29000,
+            "type" : "mock"
+          }
+        }
+      },
+      "/v1/deviceService/deviceData/ios": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer-device-service": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/deviceData/ios",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/v1/deviceService/deviceData/android": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer-device-service": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/deviceData/android",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/v1/deviceService/iosDevices": {
+        "get": {
+          "parameters": [
+            {
+              "name": "proxy",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/iosDevices",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.path.proxy": "method.request.path.proxy",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/deviceService/iosDevices/{fingerprint}/sessions": {
+        "get": {
+          "parameters": [
+            {
+              "name": "fingerprint",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/iosDevices/{fingerprint}/sessions",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.path.fingerprint": "method.request.path.fingerprint",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/deviceService/deviceData": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer-device-service": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/deviceData",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/deviceService/appData": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/appData",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/deviceService/appData/{packageName}": {
+        "get": {
+          "parameters": [
+            {
+              "name": "packageName",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/deviceService/appData",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.path.packageName": "method.request.path.packageName",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/auth/post-user-registration": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/auth/post-user-registration",
+            "requestParameters": {},
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/bulk-query/suppliers": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://$${stageVariables.LoadBalancerURL}/bulk-query/suppliers",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/transactions/{transactionId}/input-details": {
+        "get": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/transactions/{transactionId}/input-details",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.transactionId": "method.request.path.transactionId",
+              "integration.request.header.X-Bureau-Auth-Org-ID": "context.authorizer.x-bureau-auth-org-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/demo/user_fingerprint_api": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/lightsaber/v1/demo/user_fingerprint_api",
+            "requestParameters": {},
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/demo/bb_api": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/lightsaber/v1/demo/bb_api",
+            "requestParameters": {},
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/address_score": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/lightsaber/address_score",
+            "requestParameters": {},
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/alternate_risk": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/lightsaber/v1/alternate_risk",
+            "requestParameters": {},
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/transactions": {
+        "get": {
+          "parameters": [
+            {
+              "name": "proxy",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/transactions",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.path.proxy": "method.request.path.proxy",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            },
+            {
+              "api_key": []
+            }
+          ]
+        },
+        "put": {
+          "parameters": [
+            {
+              "name": "transactions",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "PUT",
+            "uri": "https://${stageVariables.LoadBalancerURL}/transactions",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.transactions": "method.request.path.transactions",
+              "integration.request.header.X-Bureau-Auth-User-ID": "context.authorizer.x-bureau-auth-user-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            },
+            {
+              "api_key": []
+            }
+          ]
+        },
+        "post": {
+          "parameters": [
+            {
+              "name": "proxy",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/transactions",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.path.proxy": "method.request.path.proxy",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer-auth-token-cache": []
+            },
+            {
+              "api_key": []
+            }
+          ]
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "never",
+            "timeoutInMillis": 29000,
+            "type": "mock"
+          }
+        }
+      },
+      "/bulk-query/applications": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/bulk-query/applications",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.header.X-Bureau-Auth-User-ID": "context.authorizer.x-bureau-auth-user-id"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "get": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/bulk-query/applications",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/bulk-query/applications/{applicationId}/enqueue": {
+        "patch": {
+          "parameters": [
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "PATCH",
+            "uri": "https://${stageVariables.LoadBalancerURL}/bulk-query/applications/{applicationId}/enqueue",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.applicationId": "method.request.path.applicationId"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/bulk-query/applications/{applicationId}": {
+        "get": {
+          "parameters": [
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/bulk-query/applications/{applicationId}",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.applicationId": "method.request.path.applicationId"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/bulk-query/applications/{applicationId}/downloadURLs": {
+        "geto": {
+          "parameters": [
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/bulk-query/applications/{applicationId}/downloadURLs",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.applicationId": "method.request.path.applicationId"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/bulk-query/applications/{applicationId}/cancel": {
+        "patch": {
+          "parameters": [
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "PATCH",
+            "uri": "https://${stageVariables.LoadBalancerURL}/bulk-query/applications/{applicationId}/cancel",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Auth-Client-ID": "context.authorizer.x-bureau-auth-client-id",
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.path.applicationId": "method.request.path.applicationId"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        }
+      },
+      "/v1/auth/create-organisation": {
+        "post": {
+          "responses": {
+            "900": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "POST",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/auth/create-organisation",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.header.X-Bureau-Auth-User-ID": "context.authorizer.x-bureau-auth-user-id"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/auth/user/organizations": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/auth/user/organizations",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.header.X-Bureau-Auth-User-ID": "context.authorizer.x-bureau-auth-user-id"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      },
+      "/v1/auth/permissions/{organization_id}/{user_id}": {
+        "get": {
+          "parameters": [
+            {
+              "name": "organization_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "user_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Empty"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "orch-dev-mb-lambda-authorizer": []
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "httpMethod": "GET",
+            "uri": "https://${stageVariables.LoadBalancerURL}/v1/auth/permissions/{organization_id}/{user_id}",
+            "requestParameters": {
+              "integration.request.header.X-Bureau-Request-ID": "context.authorizer.x-bureau-request-id",
+              "integration.request.header.X-Bureau-Auth-User-ID": "context.authorizer.x-bureau-auth-user-id",
+              "integration.request.path.organization_id": "method.request.path.organization_id",
+              "integration.request.path.user_id": "method.request.path.user_id"
+            },
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "timeoutInMillis": 29000,
+            "type": "http_proxy"
+          }
+        },
+        "options": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Methods": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "Access-Control-Allow-Headers": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "responses": {
+              "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                  "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                  "method.response.header.Access-Control-Allow-Headers": "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'",
+                  "method.response.header.Access-Control-Allow-Origin": "'*'"
+                }
+              }
+            },
+            "requestTemplates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "passthroughBehavior": "when_no_match",
+            "type": "mock"
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Empty": {
+          "title": "Empty Schema",
+          "type": "object"
+        }
+      },
+      "securitySchemes": {
+        "orch-dev-mb-lambda-authorizer": {
+          "type": "apiKey",
+          "name": "Unused",
+          "in": "header",
+          "x-amazon-apigateway-authtype": "custom",
+          "x-amazon-apigateway-authorizer": {
+            "authorizerUri": "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:658114288543:function:orch-dev-mb-authorizer/invocations",
+            "authorizerCredentials": "arn:aws:iam::658114288543:role/orch-dev-mb-api-gateway-auth-invocation",
+            "authorizerResultTtlInSeconds": 0,
+            "identitySource": "context.requestId",
+            "type": "request"
+          }
+        },
+        "orch-dev-mb-lambda-authorizer-auth-token-cache": {
+          "type": "apiKey",
+          "name": "Unused",
+          "in": "header",
+          "x-amazon-apigateway-authtype": "custom",
+          "x-amazon-apigateway-authorizer": {
+            "type": "request",
+            "identitySource": "method.request.header.Authorization, context.httpMethod, context.path",
+            "authorizerUri": "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:658114288543:function:orch-dev-mb-authorizer/invocations",
+            "authorizerCredentials": "arn:aws:iam::658114288543:role/orch-dev-mb-api-gateway-auth-invocation",
+            "authorizerResultTtlInSeconds": 300
+          }
+        }
+        "orch-dev-mb-lambda-authorizer-device-service": {
+          "type": "apiKey",
+          "name": "Unused",
+          "in": "header",
+          "x-amazon-apigateway-authtype": "custom",
+          "x-amazon-apigateway-authorizer": {
+            "type": "request",
+            "identitySource": "method.request.header.x-bureau-auth-credential-id, context.httpMethod, context.path",
+            "authorizerUri": "arn:aws:apigateway:ap-south-1:lambda:path/2015-03-31/functions/arn:aws:lambda:ap-south-1:658114288543:function:orch-dev-mb-authorizer/invocations",
+            "authorizerCredentials": "arn:aws:iam::658114288543:role/orch-dev-mb-api-gateway-auth-invocation",
+            "authorizerResultTtlInSeconds": 300
+          }
+        },
+        "api_key": {
+          "type": "apiKey",
+          "name": "x-api-key",
+          "in": "header",
+          "x-amazon-apigateway-api-key-source": "HEADER"
+        }
+      }
+    }
+  }
+  
