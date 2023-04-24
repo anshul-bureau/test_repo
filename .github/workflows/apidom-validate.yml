@@ -9,6 +9,29 @@ on:
         default: 'dev'
       
 jobs:
+  # list_files:
+  #   runs-on: ubuntu-latest
+  #   name: Validate API Gateway OpenAPI Spec Files.
+  #   # strategy:
+  #   #   matrix:
+  #   #     value: ${{fromJson(needs.setup.outputs.matrix)}}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+
+  #     - name: Get modified files
+  #       id: modified_files
+  #       uses: trilom/file-changes-action@v1.0.0
+  #       with:
+  #         githubToken: ${{ secrets.GITHUB_TOKEN }}
+  #     - name: Create list of modified files
+  #       id: modified_files_list
+  #       uses: lucaspinheirogit/list-from-string-array-action@v1.4.3
+  #       with:
+  #         stringArray: ${{ steps.modified_files.outputs.files_modified }}
+  #     - name: Print modified files
+  #       run: echo '${{ steps.modified_files_list.outputs.stringList }}'
+
   # setup:
   #   runs-on: ubuntu-latest
   #   outputs:
@@ -16,7 +39,7 @@ jobs:
   #   steps:
   #     - id: matrix
   #       run: |
-  #         echo '::set-output name=value::[\".\/dev-api.json\", \".\/dev2.json\"]'
+  #         echo '::set-output name=value::${{ steps.modified_files_list.outputs.stringList }}
   check_format:
     # needs: [ setup ]
     runs-on: ubuntu-latest
@@ -25,9 +48,6 @@ jobs:
     #   matrix:
     #     value: ${{fromJson(needs.setup.outputs.matrix)}}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       # - name: Get changed files in the docs folder
       #   id: changed-files-specific
       #   uses: tj-actions/changed-files@v35
@@ -44,4 +64,6 @@ jobs:
       - name: swagger/openapi apidom spec validation.
         uses: char0n/apidom-validate@v1
         with:
-          definition-file: '["./dev-api.json", "./dev2.json"]'
+          definition-file: "./dev-api.json"
+
+          definition-file: "./dev2.json"

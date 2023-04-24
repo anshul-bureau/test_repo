@@ -3314,7 +3314,7 @@
             "type": "http_proxy"
           }
         }
-      },
+      }
       "/bulk-query/applications/{applicationId}/downloadURLs": {
         "geto": {
           "parameters": [
