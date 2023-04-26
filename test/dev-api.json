@@ -9,7 +9,7 @@
       "post": {
         "responses": {
           "200": {
-            "description": "2001 response",
+            "description": "2001gse response",
             "headers": {
               "Access-Control-Allow-Origin": {
                 "schema": {
