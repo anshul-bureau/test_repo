@@ -3,7 +3,8 @@ name: Swagger API Validation - apidom
 on: 
   pull_request:
     branches:
-      - master
+      - main
+      
       
 jobs:
   check_format:
@@ -14,14 +15,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            workflows:
+              - './test/dev-api.json'
+      # run only if 'workflows' files were changed
 
-      - name: Get changed files in the docs folder
-        id: files
-        uses: jitterbit/get-changed-files@v1
-      - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
-          done
+
+      # - name: Get changed files in the docs folder
+      #   id: files
+      #   uses: jitterbit/get-changed-files@v1
+      # - run: |
+      #     echo "CHANGED_FILES=${{ steps.files.outputs.all }}" >> "$GITHUB_OUTPUT"
+      #     echo ${{ steps.files.outputs.all }}
+
+      # - name: Create list of modified files
+      #   id: modified_files_list
+      #   uses: lucaspinheirogit/list-from-string-array-action@v1.4.3
+      #   with:
+      #     stringArray: ${{ steps.files.outputs.all }}
+
+      # - run: |
+      #   echo ${{ steps.modified_files_list.outputs.stringList }}
 
       # - name: Run step if any file(s) in the docs folder change
       #   if: steps.changed-files-specific.outputs.any_changed == 'true'
@@ -32,6 +49,28 @@ jobs:
       #     echo "${{ steps.changed-files-specific.outputs.all_changed_files }}"
 
       - name: swagger/openapi apidom spec validation.
+        if: steps.filter.outputs.workflows == 'true'
         uses: char0n/apidom-validate@v1
         with:
-          definition-file: ${{ fromJSON(steps.files.outputs.all) }}
+          definition-file: './test/dev-api.json'
+
+  check_format_2:
+    runs-on: ubuntu-latest
+    name: Validate API Gateway OpenAPI Spec Files - 2.
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            workflows:
+              - './test/dev2.json'
+      
+      - name: swagger/openapi apidom spec validation.
+        if: steps.filter.outputs.workflows == 'true'
+        uses: char0n/apidom-validate@v1
+        with:
+          definition-file: './test/dev2.json'
