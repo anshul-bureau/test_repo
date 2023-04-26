@@ -34,4 +34,4 @@ jobs:
       - name: swagger/openapi apidom spec validation.
         uses: char0n/apidom-validate@v1
         with:
-          definition-file: ${{ fromJSON(steps.files.outputs.CHANGED_FILES) }}
+          definition-file: ${{ fromJSON(steps.files.outputs.all) }}
