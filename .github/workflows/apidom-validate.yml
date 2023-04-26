@@ -30,7 +30,7 @@ jobs:
           stringArray: ${{ steps.files.outputs.all }}
 
       - run: |
-        echo "${{ steps.modified_files_list.outputs.stringList }}" 
+        echo ${{ steps.modified_files_list.outputs.stringList }}
 
       # - name: Run step if any file(s) in the docs folder change
       #   if: steps.changed-files-specific.outputs.any_changed == 'true'
