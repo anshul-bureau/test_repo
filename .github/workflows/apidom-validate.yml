@@ -23,6 +23,15 @@ jobs:
           echo "CHANGED_FILES=${{ steps.files.outputs.all }}" >> "$GITHUB_OUTPUT"
           echo ${{ steps.files.outputs.all }}
 
+      - name: Create list of modified files
+        id: modified_files_list
+        uses: lucaspinheirogit/list-from-string-array-action@v1.4.3
+        with:
+          stringArray: ${{ steps.files.outputs.all }}
+
+      - run: |
+        echo "${{ steps.modified_files_list.outputs.stringList }}" 
+
       # - name: Run step if any file(s) in the docs folder change
       #   if: steps.changed-files-specific.outputs.any_changed == 'true'
       #   # outputs:
@@ -34,4 +43,4 @@ jobs:
       - name: swagger/openapi apidom spec validation.
         uses: char0n/apidom-validate@v1
         with:
-          definition-file: ${{ fromJSON(steps.files.outputs.all) }}
+          definition-file: ${{ fromJSON(steps.modified_files_list.outputs.stringList) }}
