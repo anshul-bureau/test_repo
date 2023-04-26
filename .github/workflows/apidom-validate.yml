@@ -20,9 +20,7 @@ jobs:
         id: files
         uses: jitterbit/get-changed-files@v1
       - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
-          done
+          echo "CHANGED_FILES=${{ steps.files.outputs.all }}" >> "$GITHUB_OUTPUT"
 
       # - name: Run step if any file(s) in the docs folder change
       #   if: steps.changed-files-specific.outputs.any_changed == 'true'
@@ -35,4 +33,4 @@ jobs:
       - name: swagger/openapi apidom spec validation.
         uses: char0n/apidom-validate@v1
         with:
-          definition-file: ${{ fromJSON(steps.files.outputs.all) }}
+          definition-file: ${{ fromJSON(step.files.outputs.CHANGED_FILES) }}
