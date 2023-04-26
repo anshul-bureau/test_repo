@@ -24,13 +24,18 @@ jobs:
         # with:
         #   files: './test/**'  # Alternatively using: `docs/**` or `docs`
 
-      - name: Run step if any file(s) in the docs folder change
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
-        # outputs:
-        #   matrix: ${{ steps.set-matrix.outputs.matrix }}
-        run: |
-          echo "One or more files in the docs folder has changed."
-          echo "${{ steps.changed-files-specific.outputs.all_changed_files }}"
+      run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
+
+      # - name: Run step if any file(s) in the docs folder change
+      #   if: steps.changed-files-specific.outputs.any_changed == 'true'
+      #   # outputs:
+      #   #   matrix: ${{ steps.set-matrix.outputs.matrix }}
+      #   run: |
+      #     echo "One or more files in the docs folder has changed."
+      #     echo "${{ steps.changed-files-specific.outputs.all_changed_files }}"
 
       - name: swagger/openapi apidom spec validation.
         uses: char0n/apidom-validate@v1
