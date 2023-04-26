@@ -3,7 +3,8 @@ name: Swagger API Validation - apidom
 on: 
   pull_request:
     branches:
-      - master
+      - main
+      
       
 jobs:
   check_format:
