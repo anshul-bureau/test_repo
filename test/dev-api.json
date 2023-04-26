@@ -79,7 +79,7 @@
         "x-amazon-apigateway-integration": {
           "responses": {
             "default": {
-              "statusCode": "200",
+              "statusCode": "400",
               "responseParameters": {
                 "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,POST,PUT'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Bureau-Auth-Client-ID,X-Bureau-Request-ID,X-Bureau-Auth-Org-ID'",
