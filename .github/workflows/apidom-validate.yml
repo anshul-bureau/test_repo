@@ -1,12 +1,9 @@
 name: Swagger API Validation - apidom
 
 on: 
-  workflow_dispatch:
-    # inputs:
-    #   environment:
-    #     description: 'Choose environment to deploy to [dev,stg or prd].'     
-    #     required: true
-    #     default: 'dev'
+  pull_request:
+    branches:
+      - master
       
 jobs:
   check_format:
