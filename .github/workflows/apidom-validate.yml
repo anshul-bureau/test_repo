@@ -65,5 +65,3 @@ jobs:
         uses: char0n/apidom-validate@v1
         with:
           definition-file: "./dev-api.json"
-
-          definition-file: "./dev2.json"
