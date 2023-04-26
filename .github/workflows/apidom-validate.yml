@@ -19,15 +19,11 @@ jobs:
 
 
       - name: Get changed files in the docs folder
-        id: changed-files-specific
-        uses: tj-actions/changed-files@v35
-        # with:
-        #   files: './test/**'  # Alternatively using: `docs/**` or `docs`
-
-      - name: List all changed files
+        id: files
+        uses: jitterbit/get-changed-files@v1
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
           done
 
       # - name: Run step if any file(s) in the docs folder change
@@ -41,4 +37,4 @@ jobs:
       - name: swagger/openapi apidom spec validation.
         uses: char0n/apidom-validate@v1
         with:
-          definition-file: ${{ fromJSON(steps.changed-files-specific.outputs.all_changed_files) }}
+          definition-file: ${{ fromJSON(steps.files.outputs.all) }}
