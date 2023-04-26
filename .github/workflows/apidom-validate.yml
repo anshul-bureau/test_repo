@@ -13,8 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Validate API Gateway OpenAPI Spec Files.
     steps:
-      
 
+      - name: Gather files changed
+        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
+        with:
+          fileOutput: 'json'
+
+      - name: Show files changed
+        run: cat $HOME/files.json
+        
       - name: swagger/openapi apidom spec validation.
         uses: char0n/apidom-validate@v1
         with:
