@@ -15,19 +15,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-
-      - name: Get changed files in the docs folder
-        id: files
-        uses: jitterbit/get-changed-files@v1
-      - run: |
-          echo "CHANGED_FILES=${{ steps.files.outputs.all }}" >> "$GITHUB_OUTPUT"
-          echo ${{ steps.files.outputs.all }}
-
-      - name: Create list of modified files
-        id: modified_files_list
-        uses: lucaspinheirogit/list-from-string-array-action@v1.4.3
+      - uses: dorny/paths-filter@v2
+        id: filter
         with:
-          stringArray: ${{ steps.files.outputs.all }}
+          filters: |
+            workflows:
+              - './test/dev-api.json'
+      # run only if 'workflows' files were changed
+
+
+      # - name: Get changed files in the docs folder
+      #   id: files
+      #   uses: jitterbit/get-changed-files@v1
+      # - run: |
+      #     echo "CHANGED_FILES=${{ steps.files.outputs.all }}" >> "$GITHUB_OUTPUT"
+      #     echo ${{ steps.files.outputs.all }}
+
+      # - name: Create list of modified files
+      #   id: modified_files_list
+      #   uses: lucaspinheirogit/list-from-string-array-action@v1.4.3
+      #   with:
+      #     stringArray: ${{ steps.files.outputs.all }}
 
       # - run: |
       #   echo ${{ steps.modified_files_list.outputs.stringList }}
@@ -41,6 +49,7 @@ jobs:
       #     echo "${{ steps.changed-files-specific.outputs.all_changed_files }}"
 
       - name: swagger/openapi apidom spec validation.
+        if: steps.filter.outputs.workflows == 'true'
         uses: char0n/apidom-validate@v1
         with:
-          definition-file: ${{ fromJSON(steps.modified_files_list.outputs.stringList) }}
+          definition-file: './test/dev-api.json'
